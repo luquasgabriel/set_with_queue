@@ -1,0 +1,36 @@
+Dupla: Lucas Gabriel Pereira da Silva e Edgar de Oliveira Pereira
+
+Material utilizado: https://github.com/ricardo9n/estd/blob/main/filas/fila_array.py | https://www.geeksforgeeks.org/understanding-time-complexity-simple-examples/ | https://www.youtube.com/watch?v=KXAbAa1mieU
+
+-> Execute menu.py para testar as funções da classe SetWithQueue e poder rodar os testes disponibilizados diretamente pelo terminal.
+-> O arquivo set_with_queue.py contém todas as funções solicitadas e passa por todos os testes.
+
+
+Detalhamento das funções:
+*A classe SetWithQueue é uma forma de criar um conjunto que usa uma fila para armazenar seus elementos. Cada função da classe tem uma tarefa específica para garantir que os elementos sejam gerenciados corretamente, sem duplicatas.
+
+*O método "__init__" é o construtor da classe e é chamado quando criamos uma nova instância de SetWithQueue. Ele inicializa uma fila, que é onde os elementos do conjunto estarão. Essa fila é uma instância da classe FilaArray e serve como a base para todas as operações do conjunto.
+
+*O método "list" retorna todos os elementos que estão na fila em forma de lista. Para fazer isso, ele remove cada elemento da fila, armazena em uma lista temporária e, em seguida, coloca os elementos de volta na fila. Isso permite que você veja todos os itens do conjunto, mantendo a fila intacta.
+
+*A função "size" apenas retorna o número de elementos que estão na fila.
+
+*O método "add" é usado para adicionar novos elementos ao conjunto. Antes de adicionar um elemento, ele verifica se já existe na fila usando o método contains. Essa verificação é importante para evitar que elementos duplicados sejam adicionados. Se o elemento já estiver na fila, o método não faz nada, mantendo a propriedade do conjunto.
+
+*Já o método "remove" permite que você remova um elemento da fila. Se o elemento que você quer remover não estiver presente, o método levanta um erro, avisando que ele não foi encontrado. Para remover, o método cria uma nova fila com todos os elementos, exceto o que você quer excluir, e depois substitui a fila original pela nova.
+
+*A função "contains" verifica se um elemento específico está na fila. Ela percorre todos os elementos e, se encontrar o que você está procurando, retorna True. Se não, retorna False. Assim como o método list, essa operação também precisa manter a ordem dos elementos, já que os que foram retirados temporariamente são colocados de volta.
+
+*Ainda, o método "__str__" fornece uma representação legível da instância da classe SetWithQueue. Ele usa o método list para obter a lista de elementos e formata isso de uma maneira que é fácil de entender. Isso ajuda os usuários a ver rapidamente quais elementos estão no conjunto.
+
+
+Quanto ao desempenho:
+*A função "add" verifica se o elemento já existe antes de adicioná-lo. Essa verificação leva tempo proporcional ao número de elementos na fila, pois é necessário percorrer todos eles. Isso significa que a complexidade é O(n). Essa abordagem é importante para evitar duplicatas, mas pode deixar a função um pouco lenta.
+
+*A função "remove" também leva tempo O(n) porque, ao remover um elemento, precisamos criar uma nova fila que contém todos os elementos, exceto o que está sendo removido. Assim, precisamos percorrer toda a fila novamente.
+
+*A função "contains" tem o mesmo desempenho de O(n) por causa do mesmo motivo: ela percorre toda a fila para verificar se o elemento existe.
+
+*A função "list" também apresenta um desempenho O(n) porque retorna todos os elementos da fila, o que requer que todos sejam processados.
+
+*Já a função "size" é mais rápida, com complexidade O(1). Isso acontece porque essa função simplesmente retorna o número de elementos armazenados, sem precisar percorrer a fila.
